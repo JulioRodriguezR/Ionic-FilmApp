@@ -11,7 +11,7 @@ export class Tab1Page implements OnInit {
   constructor(private moviesSrv: MoviesService) { }
 
   ngOnInit() {
-    this.moviesSrv.getFeauture().subscribe(console.log);
+    this.moviesSrv.getFeauture().subscribe(resp => console.log(resp));
   }
 
 }
