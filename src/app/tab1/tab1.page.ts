@@ -12,7 +12,9 @@ export class Tab1Page implements OnInit {
 
   slideOpts = {
     initialSlide: 1,
-    speed: 400
+    slidesPerView: 1.1,
+    speed: 400,
+    freeMode: true
   };
 
   filmsToday: Film[] = [];

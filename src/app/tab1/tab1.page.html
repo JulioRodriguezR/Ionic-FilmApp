@@ -1,13 +1,9 @@
 <ion-content>
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide>
-      <h1>Slide 1</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 3</h1>
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let film of filmsToday">
+      <ion-card>
+        <img [src]="film.backdrop_path | image" />
+      </ion-card>
     </ion-slide>
   </ion-slides>
 </ion-content>
