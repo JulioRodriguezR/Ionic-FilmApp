@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MoviesService } from '../services/movies.service';
+import { Film } from '../models/models';
 
 @Component({
   selector: 'app-tab1',
@@ -8,10 +10,17 @@ import { MoviesService } from '../services/movies.service';
 })
 export class Tab1Page implements OnInit {
 
+  filmsToday: Film[] = [];
+
   constructor(private moviesSrv: MoviesService) { }
 
   ngOnInit() {
-    this.moviesSrv.getFeauture().subscribe(resp => console.log(resp));
+    this.moviesSrv.getFeauture()
+      .subscribe(resp => {
+        console.log(resp);
+        this.filmsToday = resp.results;
+      }
+      );
   }
 
 }
