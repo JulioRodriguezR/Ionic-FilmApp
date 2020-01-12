@@ -10,6 +10,11 @@ import { Film } from '../models/models';
 })
 export class Tab1Page implements OnInit {
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
   filmsToday: Film[] = [];
 
   constructor(private moviesSrv: MoviesService) { }
