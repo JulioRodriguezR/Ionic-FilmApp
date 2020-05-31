@@ -24,7 +24,6 @@ export class Tab1Page implements OnInit {
   ngOnInit() {
     this.moviesSrv.getFeauture()
       .subscribe(resp => {
-        console.log(resp);
         this.filmsToday = resp.results;
       }
       );
