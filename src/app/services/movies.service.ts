@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 
 const URL = environment.url;
 const apiKey = environment.apiKey;
+const header = environment.header;
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,11 @@ export class MoviesService {
     const start = `${t.getFullYear()}-${monthStr}-01`;
     const end = `${t.getFullYear()}-${monthStr}-${lastDay}`;
 
-    return this.execQuery<RootResponse>(`/discover/movie?primary_release_date.gte=${start}&primary_release_date.lte=${end}`);
+    return this.execQuery<RootResponse>(`${header}primary_release_date.gte=${start}&primary_release_date.lte=${end}`);
+  }
+
+  getPopularity() {
+    const query = `${header}sort_by=popularity.desc'`;
+    return this.execQuery<RootResponse>(query);
   }
 }

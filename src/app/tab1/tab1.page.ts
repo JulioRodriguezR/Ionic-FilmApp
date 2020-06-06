@@ -10,6 +10,7 @@ import { Film } from '../models/models';
 })
 export class Tab1Page implements OnInit {
   filmsToday: Film[] = [];
+  filmsPopularity: Film[] = [];
 
   constructor(private moviesSrv: MoviesService) { }
 
@@ -17,6 +18,11 @@ export class Tab1Page implements OnInit {
     this.moviesSrv.getFeauture()
       .subscribe(resp => {
         this.filmsToday = resp.results;
+      });
+
+    this.moviesSrv.getPopularity()
+      .subscribe(resp => {
+        this.filmsPopularity = resp.results;
       });
   }
 
