@@ -1,9 +1,6 @@
 <ion-content>
-  <ion-slides [options]="slideOpts">
-    <ion-slide *ngFor="let film of filmsToday">
-      <ion-card>
-        <img [src]="film.backdrop_path | image" />
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
+  <app-grid txt="News Films"></app-grid>
+  <app-slideshow-backdrop [films]="filmsToday"></app-slideshow-backdrop>
+  <app-grid txt="Billboard"></app-grid>
+  <app-slideshow-poster [films]="filmsToday"></app-slideshow-poster>
 </ion-content>

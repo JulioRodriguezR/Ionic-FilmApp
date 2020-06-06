@@ -9,14 +9,6 @@ import { Film } from '../models/models';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-
-  slideOpts = {
-    initialSlide: 1,
-    slidesPerView: 1.1,
-    speed: 400,
-    freeMode: true
-  };
-
   filmsToday: Film[] = [];
 
   constructor(private moviesSrv: MoviesService) { }
@@ -25,8 +17,7 @@ export class Tab1Page implements OnInit {
     this.moviesSrv.getFeauture()
       .subscribe(resp => {
         this.filmsToday = resp.results;
-      }
-      );
+      });
   }
 
 }
