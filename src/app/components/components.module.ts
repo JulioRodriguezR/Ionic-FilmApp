@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { PipesModule } from '../pipes/pipes.module';
 import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.component';
 import { GridComponent } from './main/grid/grid.component';
+import { SlideshowMultilinesComponent } from './slideshow-multilines/slideshow-multilines.component';
 
 
 
@@ -12,11 +13,13 @@ import { GridComponent } from './main/grid/grid.component';
   declarations: [
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
-    GridComponent
+    SlideshowMultilinesComponent,
+    GridComponent,
   ],
   exports: [
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
+    SlideshowMultilinesComponent,
     GridComponent
   ],
   imports: [
