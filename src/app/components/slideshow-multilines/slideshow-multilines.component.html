@@ -2,7 +2,7 @@
   <ion-slide *ngFor="let lines of films | multiline">
     <ion-row>
       <ion-col size="12" *ngFor="let f of lines">
-        <ion-card>
+        <ion-card (click)="showDetail(f.id)">
           <img class="poster" [src]="f.poster_path | image" />
         </ion-card>
       </ion-col>

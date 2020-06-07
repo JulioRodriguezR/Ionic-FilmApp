@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Film } from 'src/app/models/models';
+import { DetailComponent } from '../main/detail/detail.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-slideshow-multilines',
@@ -18,12 +20,23 @@ export class SlideshowMultilinesComponent implements OnInit {
     spaceBetwen: -10
   };
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() { }
 
   onClick() {
     this.loaderMore.emit();
+  }
+
+  async showDetail(id: string) {
+    const modal = await this.modalCtrl.create({
+      component: DetailComponent,
+      componentProps: {
+        id
+      }
+    });
+
+    modal.present();
   }
 
 }

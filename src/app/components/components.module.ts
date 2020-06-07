@@ -6,6 +6,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.component';
 import { GridComponent } from './main/grid/grid.component';
 import { SlideshowMultilinesComponent } from './slideshow-multilines/slideshow-multilines.component';
+import { DetailComponent } from './main/detail/detail.component';
 
 
 
@@ -15,17 +16,22 @@ import { SlideshowMultilinesComponent } from './slideshow-multilines/slideshow-m
     SlideshowPosterComponent,
     SlideshowMultilinesComponent,
     GridComponent,
+    DetailComponent
   ],
   exports: [
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
     SlideshowMultilinesComponent,
-    GridComponent
+    GridComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
     PipesModule
+  ],
+  entryComponents: [
+    DetailComponent
   ]
 })
 export class ComponentsModule { }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { RootResponse } from '../models/models';
+import { RootResponse, DetailMovie, Credits } from '../models/models';
 import { environment } from 'src/environments/environment';
 
 const URL = environment.url;
@@ -12,7 +12,7 @@ const header = environment.header;
   providedIn: 'root'
 })
 export class MoviesService {
-  private popularityPages = 0;
+  private popularPages = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -43,10 +43,18 @@ export class MoviesService {
   }
 
   getPopularities() {
-    this.popularityPages++;
+    this.popularPages++;
 
-    const query = `${header}sort_by=popularity.desc&page=${this.popularityPages}`;
+    const query = `${header}sort_by=popularity.desc&page=${this.popularPages}`;
 
     return this.execQuery<RootResponse>(query);
+  }
+
+  getDetailMovie(id: string) {
+    return this.execQuery<DetailMovie>(`/movie/${id}?a=1`);
+  }
+
+  getActorsMovie(id: string) {
+    return this.execQuery<Credits>(`/movie/${id}/credits?a=1`);
   }
 }
