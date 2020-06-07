@@ -12,6 +12,7 @@ const header = environment.header;
   providedIn: 'root'
 })
 export class MoviesService {
+  private popularityPages = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -41,8 +42,11 @@ export class MoviesService {
     return this.execQuery<RootResponse>(`${header}primary_release_date.gte=${start}&primary_release_date.lte=${end}`);
   }
 
-  getPopularity() {
-    const query = `${header}sort_by=popularity.desc'`;
+  getPopularities() {
+    this.popularityPages++;
+
+    const query = `${header}sort_by=popularity.desc&page=${this.popularityPages}`;
+
     return this.execQuery<RootResponse>(query);
   }
 }

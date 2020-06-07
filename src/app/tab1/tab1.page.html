@@ -1,10 +1,11 @@
 <ion-content>
   <app-grid txt="News Films"></app-grid>
-  <app-slideshow-backdrop [films]="filmsToday"></app-slideshow-backdrop>
+  <app-slideshow-backdrop [films]="currentMovies"></app-slideshow-backdrop>
   <app-grid txt="Billboard"></app-grid>
-  <app-slideshow-poster [films]="filmsToday"></app-slideshow-poster>
+  <app-slideshow-poster [films]="currentMovies"></app-slideshow-poster>
   <app-grid txt="Popularity"></app-grid>
   <app-slideshow-multilines
-    [films]="filmsPopularity"
+    [films]="popularMovies"
+    (loaderMore)="loaderMore()"
   ></app-slideshow-multilines>
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Film } from 'src/app/models/models';
 
 @Component({
@@ -8,6 +8,7 @@ import { Film } from 'src/app/models/models';
 })
 export class SlideshowMultilinesComponent implements OnInit {
   @Input() films: Film[] = [];
+  @Output() loaderMore = new EventEmitter();
 
   slideOpts = {
     initialSlide: 1,
@@ -20,5 +21,9 @@ export class SlideshowMultilinesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
+
+  onClick() {
+    this.loaderMore.emit();
+  }
 
 }

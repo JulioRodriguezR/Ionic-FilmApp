@@ -13,9 +13,6 @@ export class MultilinePipe implements PipeTransform {
             return result;
         }, []);
 
-
-        console.log({ multiline });
-
         return multiline;
     }
 

@@ -9,20 +9,29 @@ import { Film } from '../models/models';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  filmsToday: Film[] = [];
-  filmsPopularity: Film[] = [];
+  currentMovies: Film[] = [];
+  popularMovies: Film[] = [];
 
   constructor(private moviesSrv: MoviesService) { }
 
   ngOnInit() {
     this.moviesSrv.getFeauture()
       .subscribe(resp => {
-        this.filmsToday = resp.results;
+        this.currentMovies = resp.results;
       });
 
-    this.moviesSrv.getPopularity()
+    this.fetchPopularities();
+  }
+
+  loaderMore() {
+    this.fetchPopularities();
+  }
+
+  fetchPopularities() {
+    this.moviesSrv.getPopularities()
       .subscribe(resp => {
-        this.filmsPopularity = resp.results;
+        const arrTemp = [...this.popularMovies, ...resp.results];
+        this.popularMovies = arrTemp;
       });
   }
 
