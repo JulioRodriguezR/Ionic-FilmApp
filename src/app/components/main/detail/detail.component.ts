@@ -10,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class DetailComponent implements OnInit {
   @Input() id;
-  movie: DetailMovie;
+  film: DetailMovie;
   actors: Cast[] = [];
   hidden = 100;
 
@@ -25,7 +25,7 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.moviesSrv.getDetailMovie(this.id)
       .subscribe(resp => {
-        this.movie = resp;
+        this.film = resp;
       });
 
     this.moviesSrv.getActorsMovie(this.id)

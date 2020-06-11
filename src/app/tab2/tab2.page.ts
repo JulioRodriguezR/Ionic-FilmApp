@@ -11,7 +11,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class Tab2Page {
   txtSearch = '';
-  movies: Film[] = [];
+  films: Film[] = [];
   points = ['Super Man', 'Spiderman', 'The Lord of the Ring'];
   searching = false;
 
@@ -24,14 +24,16 @@ export class Tab2Page {
 
     if (value.length === 0) {
       this.searching = false;
-      this.movies = [];
+      this.films = [];
 
       return;
     }
 
     this.moviesSrv.getSearchMovie(value)
       .subscribe(resp => {
-        this.movies = resp['results'];
+        this.films = resp['results'];
+        console.log(this.films);
+
         this.searching = false;
       });
   }

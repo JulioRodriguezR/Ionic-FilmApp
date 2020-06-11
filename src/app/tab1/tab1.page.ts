@@ -9,15 +9,15 @@ import { Film } from '../models/models';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  currentMovies: Film[] = [];
-  popularMovies: Film[] = [];
+  currentFilms: Film[] = [];
+  popularFilms: Film[] = [];
 
   constructor(private moviesSrv: MoviesService) { }
 
   ngOnInit() {
     this.moviesSrv.getFeauture()
       .subscribe(resp => {
-        this.currentMovies = resp.results;
+        this.currentFilms = resp.results;
       });
 
     this.fetchPopularities();
@@ -30,8 +30,8 @@ export class Tab1Page implements OnInit {
   fetchPopularities() {
     this.moviesSrv.getPopularities()
       .subscribe(resp => {
-        const arrTemp = [...this.popularMovies, ...resp.results];
-        this.popularMovies = arrTemp;
+        const arrTemp = [...this.popularFilms, ...resp.results];
+        this.popularFilms = arrTemp;
       });
   }
 
