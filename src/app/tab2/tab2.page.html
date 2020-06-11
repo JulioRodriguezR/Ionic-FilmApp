@@ -23,7 +23,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-list *ngIf="movies.length === 0">
+  <ion-list *ngIf="films.length === 0">
     <ion-list-header>
       <ion-label>Points</ion-label>
     </ion-list-header>
@@ -35,7 +35,8 @@
     <ion-row>
       <ion-col size="6" *ngFor="let film of films">
         <ion-card (click)="showDetail(film.id)">
-          <img [src]="film.porter_path | image" />
+          <img [src]="film.poster_path | image" />
+          <!-- <img *ngIf="film.poster_path === null" src="" /> -->
           <ion-card-header>
             <ion-card-subtitle>{{film.release_date}}</ion-card-subtitle>
           </ion-card-header>
