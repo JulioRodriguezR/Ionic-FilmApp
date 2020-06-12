@@ -32,8 +32,6 @@ export class Tab2Page {
     this.moviesSrv.getSearchMovie(value)
       .subscribe(resp => {
         this.films = resp['results'];
-        console.log(this.films);
-
         this.searching = false;
       });
   }
