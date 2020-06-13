@@ -26,17 +26,17 @@ export class DataLocalService {
     let exist = false;
     let message = '';
 
-    this.films.find(
-      (element) => {
-        element.id === film.id;
+    for (const index of this.films) {
+      if (index.id === film.id) {
         exist = true;
+        break;
       }
-    );
+    }
 
     if (exist) {
       this.films = this.films.filter(
-        (element) =>
-          element.id === film.id
+        (f) =>
+          f.id === film.id
       );
       message = 'Remove to favorite';
     } else {
