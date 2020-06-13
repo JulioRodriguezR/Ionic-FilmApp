@@ -21,7 +21,7 @@ export interface Film {
     overview: string;
     release_date: string;
 }
-export interface DetailMovie {
+export interface DetailFilm {
     adult: boolean;
     backdrop_path: string;
     belongs_to_collection?: any;

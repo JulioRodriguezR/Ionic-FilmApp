@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { RootResponse, DetailMovie, Credits } from '../models/models';
+import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Credits, DetailFilm, RootResponse } from '../models/models';
 
 const URL = environment.url;
 const apiKey = environment.apiKey;
@@ -50,8 +49,8 @@ export class MoviesService {
     return this.execQuery<RootResponse>(query);
   }
 
-  getDetailMovie(id: string) {
-    return this.execQuery<DetailMovie>(`/movie/${id}?a=1`);
+  getDetailFilm(id: string) {
+    return this.execQuery<DetailFilm>(`/movie/${id}?a=1`);
   }
 
   getActorsMovie(id: string) {

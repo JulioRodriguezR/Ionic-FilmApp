@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies.service';
-import { DetailMovie, Cast } from 'src/app/models/models';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Cast, DetailFilm } from 'src/app/models/models';
+import { DataLocalService } from 'src/app/services/data-local.service';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-detail',
@@ -10,7 +11,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class DetailComponent implements OnInit {
   @Input() id;
-  film: DetailMovie;
+  film: DetailFilm;
   actors: Cast[] = [];
   hidden = 100;
 
@@ -20,16 +21,20 @@ export class DetailComponent implements OnInit {
     spacebetween: -5
   };
 
-  constructor(private moviesSrv: MoviesService, private modalCtr: ModalController) { }
+  constructor(
+    private moviesSrv: MoviesService,
+    private modalCtr: ModalController,
+    private dataLocal: DataLocalService
+  ) { }
 
   ngOnInit() {
-    this.moviesSrv.getDetailMovie(this.id)
-      .subscribe(resp => {
+    this.moviesSrv.getDetailFilm(this.id)
+      .subscribe((resp) => {
         this.film = resp;
       });
 
     this.moviesSrv.getActorsMovie(this.id)
-      .subscribe(resp => {
+      .subscribe((resp) => {
         this.actors = resp.cast;
       });
   }
@@ -38,6 +43,7 @@ export class DetailComponent implements OnInit {
     this.modalCtr.dismiss();
   }
 
-  favorite() { }
-
+  favorite() {
+    this.dataLocal.saveFilm(this.film);
+  }
 }
