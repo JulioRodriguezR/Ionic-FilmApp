@@ -14,7 +14,7 @@ export class DetailComponent implements OnInit {
   film: DetailFilm;
   actors: Cast[] = [];
   hidden = 100;
-  startOutline = false;
+  startIcon = 'star-outline';
 
   slideOptActors = {
     slidesPerView: 3.3,
@@ -28,12 +28,10 @@ export class DetailComponent implements OnInit {
     private dataLocal: DataLocalService
   ) { }
 
-  async ngOnInit() {
-    const exist = await this.dataLocal.existFilm(this.id);
-
-    console.log({ exist });
-
-    exist ? this.startOutline = true : this.startOutline = false;
+  ngOnInit() {
+    this.dataLocal.existFilm(this.id).then((exist) =>
+      this.startIcon = exist ? 'star' : 'star-outline'
+    );
 
     this.moviesSrv.getDetailFilm(this.id)
       .subscribe((resp) => {
@@ -51,7 +49,7 @@ export class DetailComponent implements OnInit {
   }
 
   favorite() {
-    this.startOutline = !this.startOutline;
-    this.dataLocal.saveFilm(this.film);
+    const exist = this.dataLocal.saveFilm(this.film);
+    this.startIcon = exist ? 'star' : 'star-outline';
   }
 }

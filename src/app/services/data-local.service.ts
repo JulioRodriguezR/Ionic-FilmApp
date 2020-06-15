@@ -51,6 +51,8 @@ export class DataLocalService implements OnInit {
     this.presentToast(message);
 
     this.storage.set('films', this.films);
+
+    return !exist;
   }
 
   async loadFavorites() {

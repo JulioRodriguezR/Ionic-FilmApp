@@ -67,8 +67,7 @@
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="favorite()">
-        <ion-icon slot="end" *ngIf="!startOutline" name="star-outline"></ion-icon>
-        <ion-icon slot="end" *ngIf="startOutline" name="star"></ion-icon>
+        <ion-icon slot="end" [name]="startIcon"></ion-icon>
         <ion-label>Favorite</ion-label>
       </ion-button>
     </ion-buttons>
