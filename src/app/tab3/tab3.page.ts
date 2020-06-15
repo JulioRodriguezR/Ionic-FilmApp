@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DetailComponent } from '../components/main/detail/detail.component';
-import { DetailFilm } from '../models/models';
+import { DetailFilm, Genre } from '../models/models';
 import { DataLocalService } from '../services/data-local.service';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-tab3',
@@ -10,11 +10,16 @@ import { DataLocalService } from '../services/data-local.service';
 })
 export class Tab3Page implements OnInit {
   films: DetailFilm[] = [];
+  genres: Genre[] = [];
 
-  constructor(private dataLocalSrv: DataLocalService) { }
+  constructor(
+    private dataLocalSrv: DataLocalService,
+    private movieSrv: MoviesService
+  ) { }
 
   async ngOnInit() {
     this.films = await this.dataLocalSrv.loadFavorites();
+    this.genres = await this.movieSrv.loadGenre();
   }
 
 }

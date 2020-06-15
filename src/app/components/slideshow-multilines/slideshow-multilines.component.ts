@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Film } from 'src/app/models/models';
 import { DetailComponent } from '../main/detail/detail.component';
-import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-slideshow-multilines',
