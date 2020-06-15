@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Credits, DetailFilm, RootResponse } from '../models/models';
+import { Credits, DetailFilm, Genre, RootResponse } from '../models/models';
 
 const URL = environment.url;
 const apiKey = environment.apiKey;
@@ -12,6 +12,7 @@ const header = environment.header;
 })
 export class MoviesService {
   private popularPages = 0;
+  genres: Genre[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -60,5 +61,20 @@ export class MoviesService {
   getSearchMovie(search: string) {
     const query = `/search/movie?query=${search}`;
     return this.execQuery(query);
+  }
+
+  loadGenre() {
+    return new Promise((resolve) => {
+      this.execQuery(`/genre/movie/list?a=1`).subscribe(
+        (resp: Genre) => {
+          this.genres = resp['genres'];
+
+          console.log(this.genres);
+
+          resolve(this.genres);
+
+        }
+      );
+    });
   }
 }

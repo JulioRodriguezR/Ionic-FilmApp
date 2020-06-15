@@ -13,7 +13,7 @@
       "app",
       "kebab-case"
     ],
-    "component-class-suffix": true,
+    "component-class-suffix": false,
     "directive-class-suffix": true,
     "directive-selector": [
       true,
