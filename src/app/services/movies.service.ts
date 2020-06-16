@@ -1,20 +1,20 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Credits, DetailFilm, Genre, RootResponse } from '../models/models';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
+import { Credits, DetailFilm, Genre, RootResponse } from "../models/models";
 
 const URL = environment.url;
 const apiKey = environment.apiKey;
 const header = environment.header;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class MoviesService {
   private popularPages = 0;
   genres: Genre[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private execQuery<T>(query: string) {
     query = URL + query;
@@ -31,7 +31,7 @@ export class MoviesService {
     let monthStr;
 
     if (m < 10) {
-      monthStr = '0' + m;
+      monthStr = "0" + m;
     } else {
       monthStr = m;
     }
@@ -39,7 +39,9 @@ export class MoviesService {
     const start = `${t.getFullYear()}-${monthStr}-01`;
     const end = `${t.getFullYear()}-${monthStr}-${lastDay}`;
 
-    return this.execQuery<RootResponse>(`${header}primary_release_date.gte=${start}&primary_release_date.lte=${end}`);
+    return this.execQuery<RootResponse>(
+      `${header}primary_release_date.gte=${start}&primary_release_date.lte=${end}`
+    );
   }
 
   getPopularities() {
@@ -65,16 +67,10 @@ export class MoviesService {
 
   loadGenre(): Promise<Genre[]> {
     return new Promise((resolve) => {
-      this.execQuery(`/genre/movie/list?a=1`).subscribe(
-        (resp: Genre) => {
-          this.genres = resp['genres'];
-
-          console.log(this.genres);
-
-          resolve(this.genres);
-
-        }
-      );
+      this.execQuery(`/genre/movie/list?a=1`).subscribe((resp: Genre) => {
+        this.genres = resp["genres"];
+        resolve(this.genres);
+      });
     });
   }
 }

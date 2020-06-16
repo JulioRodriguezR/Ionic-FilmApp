@@ -28,8 +28,6 @@ export class Tab3Page {
   filmsByGenre(genres: Genre[], films: DetailFilm[]) {
     this.favoriteGenre = [];
 
-    console.log({ genres });
-
     genres.forEach((genre) => {
       this.favoriteGenre.push({
         genre: genre.name,
@@ -38,5 +36,7 @@ export class Tab3Page {
         }),
       });
     });
+
+    console.log(this.favoriteGenre);
   }
 }
