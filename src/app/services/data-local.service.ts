@@ -54,8 +54,6 @@ export class DataLocalService implements OnInit {
 
     this.films = loadFilm || [];
 
-    console.log(this.films);
-
     return this.films;
   }
 

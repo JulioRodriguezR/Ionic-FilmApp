@@ -43,7 +43,7 @@ export class DetailComponent implements OnInit {
   }
 
   back() {
-    // window.location.reload();
+    window.location.reload();
     this.modalCtr.dismiss();
   }
 
