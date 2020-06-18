@@ -1,12 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Film } from 'src/app/models/models';
-import { ModalController } from '@ionic/angular';
-import { DetailComponent } from '../main/detail/detail.component';
+import { Component, Input, OnInit } from "@angular/core";
+import { ModalController } from "@ionic/angular";
+import { Film } from "src/app/models/models";
+import { DetailComponent } from "../main/detail/detail.component";
 
 @Component({
-  selector: 'app-slideshow-backdrop',
-  templateUrl: './slideshow-backdrop.component.html',
-  styleUrls: ['./slideshow-backdrop.component.scss'],
+  selector: "app-slideshow-backdrop",
+  templateUrl: "./slideshow-backdrop.component.html",
+  styleUrls: ["./slideshow-backdrop.component.scss"],
 })
 export class SlideshowBackdropComponent implements OnInit {
   @Input() films: Film[] = [];
@@ -15,22 +15,21 @@ export class SlideshowBackdropComponent implements OnInit {
     initialSlide: 1,
     slidesPerView: 1.1,
     speed: 400,
-    freeMode: true
+    freeMode: true,
   };
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   async showDetail(id: string) {
     const modal = await this.modalCtrl.create({
       component: DetailComponent,
       componentProps: {
-        id
-      }
+        id,
+      },
     });
 
     modal.present();
   }
-
 }
