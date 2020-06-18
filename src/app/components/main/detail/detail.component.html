@@ -31,6 +31,7 @@
       <ion-col size="12">
         <ion-label>{{ film.overview | slice: 0:hidden }}...</ion-label>
         <ion-label color="primary" (click)="hidden = 5000" *ngIf="hidden !== 5000">Read more</ion-label>
+        <ion-label *ngIf="hidden === 5000">{{film.overview}}</ion-label>
       </ion-col>
     </ion-row>
     <ion-row>
