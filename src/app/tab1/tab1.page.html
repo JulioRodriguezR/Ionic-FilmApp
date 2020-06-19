@@ -3,9 +3,6 @@
   <app-slideshow-backdrop [films]="currentFilms"></app-slideshow-backdrop>
   <app-grid txt="Billboard"></app-grid>
   <app-slideshow-poster [films]="popularFilms"></app-slideshow-poster>
-  <app-grid txt="Popularity"></app-grid>
-  <app-slideshow-multilines
-    [films]="popularFilms"
-    (loaderMore)="loaderMore()"
-  ></app-slideshow-multilines>
+  <app-grid txt="Popular"></app-grid>
+  <app-slideshow-multilines [films]="popularFilms" (loaderMore)="loaderMore()"></app-slideshow-multilines>
 </ion-content>
