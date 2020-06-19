@@ -3,7 +3,7 @@
     <ion-row>
       <ion-col size="12" *ngFor="let f of lines">
         <ion-card mode="md" (click)="showDetail(f.id)">
-          <img class="poster" [src]="f.poster_path | image" />
+          <img [src]="f.poster_path | image" />
         </ion-card>
       </ion-col>
     </ion-row>

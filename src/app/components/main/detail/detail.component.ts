@@ -26,7 +26,7 @@ export class DetailComponent implements OnInit {
     private moviesSrv: MoviesService,
     private modalCtr: ModalController,
     private dataLocal: DataLocalService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.dataLocal

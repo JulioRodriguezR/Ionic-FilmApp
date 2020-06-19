@@ -36,11 +36,20 @@
 }
 
 .card-actor {
-  height: 208px;
-  width: 110px;
+  height: 202px;
+  width: 120px;
 }
 
 .actor-name {
-  position: relative;
-  top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mrg-label {
+  margin-right: 6px;
+}
+
+.size {
+  height: 180px;
+  width: auto;
 }
