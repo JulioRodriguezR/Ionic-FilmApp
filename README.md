@@ -1,6 +1,6 @@
 # FilmApp
 
-Store cinephile information with the movie app built with [Ionic](https://ionicframework.com/).
+Store cinephile information with the movie app built with [Ionic](https://ionicframework.com/) with [Angular](https://angular.io/) framework.
 
 ## Key Features
 - Main view based on: _News_, _Billboard_ y _Popular_.
