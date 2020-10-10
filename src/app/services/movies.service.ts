@@ -1,11 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
+import { AppEnv } from '../models/env.model';
 import { Credits, DetailFilm, Genre, RootResponse } from "../models/models";
 
-const URL = environment.url;
-const apiKey = environment.apiKey;
-const header = environment.header;
+const URL = (environment as AppEnv).url;
+const apiKey = (environment as AppEnv).apiKey;
+const header = (environment as AppEnv).header;
 
 @Injectable({
   providedIn: "root",

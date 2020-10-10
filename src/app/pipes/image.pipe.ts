@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { AppEnv } from '../models/env.model';
 
-
-const URL = environment.imagePath;
+const URL = (environment as AppEnv).imagePath;
 
 @Pipe({
   name: 'image'

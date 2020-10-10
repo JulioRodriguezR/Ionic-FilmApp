@@ -1,12 +1,11 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { Tab1Page } from './tab1.page';
-import { PipesModule } from '../pipes/pipes.module';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '../components/components.module';
+import { PipesModule } from '../pipes/pipes.module';
+import { Tab1Page } from './tab1.page';
 
 @NgModule({
   imports: [

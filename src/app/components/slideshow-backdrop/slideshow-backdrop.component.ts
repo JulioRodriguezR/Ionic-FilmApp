@@ -18,9 +18,9 @@ export class SlideshowBackdropComponent implements OnInit {
     freeMode: true,
   };
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async showDetail(id: string) {
     const modal = await this.modalCtrl.create({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Film } from '../models/models';
 
 import { MoviesService } from '../services/movies.service';
-import { Film } from '../models/models';
 
 @Component({
   selector: 'app-tab1',
@@ -16,7 +16,7 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
     this.moviesSrv.getFeauture()
-      .subscribe(resp => {
+      .subscribe((resp) => {
         this.currentFilms = resp.results;
       });
 
@@ -29,7 +29,7 @@ export class Tab1Page implements OnInit {
 
   fetchPopularities() {
     this.moviesSrv.getPopularities()
-      .subscribe(resp => {
+      .subscribe((resp) => {
         const arrTemp = [...this.popularFilms, ...resp.results];
         this.popularFilms = arrTemp;
       });
