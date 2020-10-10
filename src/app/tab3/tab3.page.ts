@@ -16,7 +16,7 @@ export class Tab3Page {
   constructor(
     private dataLocalSrv: DataLocalService,
     private movieSrv: MoviesService
-  ) {}
+  ) { }
 
   async ionViewWillEnter() {
     this.films = await this.dataLocalSrv.loadFavorites();
@@ -36,7 +36,5 @@ export class Tab3Page {
         }),
       });
     });
-
-    console.log(this.favoriteGenre);
   }
 }

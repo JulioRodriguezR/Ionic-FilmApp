@@ -14,7 +14,7 @@ export class MoviesService {
   private popularPages = 0;
   genres: Genre[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private execQuery<T>(query: string) {
     query = URL + query;
