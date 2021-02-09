@@ -6,7 +6,7 @@
 * [Technologies](#technologies)
 * [Credits](#credits)
 
-General info
+## General info
 Store cinephile information with the movie app built with [Ionic](https://ionicframework.com/) with [Angular](https://angular.io/) framework.
 
 ## Key Features
